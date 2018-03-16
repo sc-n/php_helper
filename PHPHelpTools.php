@@ -38,7 +38,23 @@ class PHPHelpTools {
     array_multisort($sort_col, $dir, $arr);
   }
 
+  /**
+   * If you just need to know if two arrays' values are exactly the same
+   * (regardless of keys and order).
+   *
+   * @see http://php.net/manual/en/function.array-diff.php#110572
+   *
+   * @param $arrayA
+   * @param $arrayB
+   *
+   * @return bool
+   */
+  public static function array_identical_values($arrayA, $arrayB) {
+    sort($arrayA);
+    sort($arrayB);
 
+    return $arrayA == $arrayB;
+  }
 
 }
 
@@ -46,7 +62,7 @@ class PHPHelpTools {
 
 
 
-/****************** EXAMPLES *******************/
+/****************************** EXAMPLES **************************************/
 
 /*
 
@@ -64,27 +80,6 @@ array_sort_by_column($array, 'order');
 
 
 **********************************************
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 */
